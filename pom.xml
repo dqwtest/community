@@ -13,6 +13,7 @@
     <version>0.0.1-SNAPSHOT</version>
     <name>community</name>
     <description>Study project for Spring Boot</description>
+         <package>war</package>
 
     <properties>
         <java.version>1.8</java.version>
