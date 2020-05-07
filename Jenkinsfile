@@ -4,7 +4,7 @@
   4    stages {
   5       stage('pull code') {
   6           steps {
-  7             checkout([$class: 'GitSCM', branches: [[name: '*/${master}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId    : 'a8e22755-a0e8-4075-8429-6ac0f52d74f9', url: 'https://github.com/dqwtest/community.git']]])
+  7             checkout([$class: 'GitSCM', branches: [[name: '*/${branch}']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId    : 'a8e22755-a0e8-4075-8429-6ac0f52d74f9', url: 'https://github.com/dqwtest/community.git']]])
   8           }
   9       }
  10       stage('build project') {
