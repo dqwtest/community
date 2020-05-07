@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>${ENV, var="JOB_NAME"}-µÚ{BUILD_NUMBER}´ι¹½¨È־</title>
+</head>
+
+<body leftmargin="8" marginwidth="0" topmargin="8" marginheight="4"
+      offset="0">
+<table class="table" width="1000" border="1" cellspacing="0" cellpadding="5">
+    <caption align="center"><h3>ÏĿ¹¹½¨ÐϢ</h3></caption>
+    <thead>
+    <tr>
+        <th>¹¹½¨ÏĿ-<b>${PROJECT_NAME}</b></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td><font color="#CC0000"><b>¹¹½¨½á - ${BUILD_STATUS}</b></font></td>
+    </tr>
+    <tr>
+        <td>²âÊ-${TEST_COUNTS, var="total"}</td>
+    </tr>
+    </tbody>
+    <tr>
+        ±¾Ó¼þÓϵͳ×¶¯·¢³öÞè¸´£¡<br/>
+        ¸÷¬Ê£¬´óã¬ÒÏΪ${PROJECT_NAME}ÏĿ¹¹½¨ÐϢ</br>
+    </tr>
+
+    <tr>
+        <td><br/>
+            <b><font color="#0B610B">¹¹½¨±¨¸æfont></b>
+            <hr size="2" width="100%" align="center"/>
+            <ul>
+                <li>¹¹½¨±¨¸棺<a href="${BUILD_URL}allure/">${PROJECT_URL}allure/</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><br/>
+            <b><font color="#0B610B">¹¹½¨ÐϢ</font></b>
+            <hr size="2" width="100%" align="center"/>
+            <ul>
+                <li>ÏĿÃ³Æ ${PROJECT_NAME}</li>
+                <li>¹¹½¨±à: µÚ{BUILD_NUMBER}´ι¹½¨</li>
+                <li>´¥·¢ԭÒ£º${CAUSE}</li>
+                <li>¹¹½¨״̬£º${BUILD_STATUS}</li>
+                <li>¹¹½¨È־£º<a href="${BUILD_URL}console">${BUILD_URL}console</a></li>
+                <li>¹¹½¨ Url: <a href="${BUILD_URL}">${BUILD_URL}</a></li>
+                <li>¹¤×Ŀ¼: <a href="${PROJECT_URL}ws">${PROJECT_URL}ws</a></li>
+                <li>ÏĿ Url: <a href="${PROJECT_URL}">${PROJECT_URL}</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b><font color="#0B610B">¹¹½¨ÏϸÐϢ</font></b>
+            <hr size="2" width="100%" align="center"/>
+            <ul>
+                <li>BRANCH_NAME: ${BRANCH_NAME}</li>
+                <li>CHANGE_ID: ${CHANGE_ID}</li>
+                <li>CHANGE_URL: ${CHANGE_URL}</li>
+                <li>CHANGE_TITLE: ${CHANGE_TITLE}</li>
+                <li>CHANGE_AUTHOR: ${CHANGE_AUTHOR}</li>
+                <li>CHANGE_AUTHOR_DISPLAY_NAME: ${CHANGE_AUTHOR_DISPLAY_NAME}</li>
+                <li>CHANGE_AUTHOR_EMAIL: ${CHANGE_AUTHOR_EMAIL}</li>
+                <li>CHANGE_TARGET: ${CHANGE_TARGET}</li>
+                <li>BUILD_NUMBER: ${BUILD_NUMBER}</li>
+                <li>BUILD_DISPLAY_NAME: ${BUILD_DISPLAY_NAME}</li>
+                <li>BUILD_ID: ${BUILD_ID}</li>
+                <li>JOB_NAME: ${JOB_NAME}</li>
+                <li>JOB_BASE_NAME: ${JOB_BASE_NAME}</li>
+                <li>BUILD_TAG: ${BUILD_TAG}</li>
+                <li>EXECUTOR_NUMBER: ${EXECUTOR_NUMBER}</li>
+                <li>NODE_NAME: ${NODE_NAME}</li>
+                <li>NODE_LABELS: ${NODE_LABELS}</li>
+                <li>WORKSPACE: ${WORKSPACE}</li>
+                <li>JENKINS_HOME: ${JENKINS_HOME}</li>
+                <li>JENKINS_URL: ${JENKINS_URL}</li>
+                <li>BUILD_URL: ${BUILD_URL}</li>
+                <li>JOB_URL: ${JOB_URL}</li>
+                <li>GIT_COMMIT: ${GIT_COMMIT}</li>
+                <li>GIT_PREVIOUS_COMMIT: ${GIT_PREVIOUS_COMMIT}</li>
+                <li>GIT_PREVIOUS_SUCCESSFUL_COMMIT: ${GIT_PREVIOUS_SUCCESSFUL_COMMIT}</li>
+                <li>GIT_BRANCH: ${GIT_BRANCH}</li>
+                <li>GIT_LOCAL_BRANCH: ${GIT_LOCAL_BRANCH}</li>
+                <li>GIT_URL: ${GIT_URL}</li>
+                <li>GIT_COMMITTER_NAME: ${GIT_COMMITTER_NAME}</li>
+                <li>GIT_AUTHOR_NAME: ${GIT_AUTHOR_NAME}</li>
+                <li>GIT_COMMITTER_EMAIL: ${GIT_COMMITTER_EMAIL}</li>
+                <li>GIT_AUTHOR_EMAIL: ${GIT_AUTHOR_EMAIL}</li>
+                <li>MERCURIAL_REVISION: ${MERCURIAL_REVISION}</li>
+                <li>MERCURIAL_REVISION_SHORT: ${MERCURIAL_REVISION_SHORT}</li>
+                <li>MERCURIAL_REVISION_NUMBER: ${MERCURIAL_REVISION_NUMBER}</li>
+                <li>MERCURIAL_REVISION_BRANCH: ${MERCURIAL_REVISION_BRANCH}</li>
+                <li>MERCURIAL_REPOSITORY_URL: ${MERCURIAL_REPOSITORY_URL}</li>
+                <li>SVN_REVISION: ${SVN_REVISION}</li>
+                <li>SVN_URL: ${SVN_URL}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h4><font color="#0B610B">ʧ°ÜÃýt></h4>
+            ${FAILED_TESTS}<br/>
+        </td>
+    </tr>
+
+    <tr>
+        <td>
+            <h4><font color="#0B610B">×½ü#$GIT_REVISION)</font></h4>
+            <!--
+            <ul>
+                ${CHANGES_SINCE_LAST_SUCCESS, reverse=true, format="%c", changesFormat="
+                <li>%d [%a] %m</li>
+                "}
+            </ul>
+            <-->
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <b><font color="#0B610B">±äÐϢ:</font></b>
+            <hr size="2" width="100%" align="center"/>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>
+                    É´ι¹½¨³ɹ¦ºó¯ : ${CHANGES_SINCE_LAST_SUCCESS, reverse=true, format="%c", changesFormat="<li>%d [%a] %m</li>"}
+                </li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>É´ι¹½¨²»Î¶¨ºó¯ : ${CHANGES_SINCE_LAST_UNSTABLE, reverse=true, format="%c", changesFormat="<li>%d [%a] %m</li>"}
+                </li>
+            </ul>
+        </td>
+    <tr>
+        <td>
+            <ul>
+                <li>Àʷ±ä¼Ç¼ : <a href="${PROJECT_URL}changes">${PROJECT_URL}changes</a></li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <ul>
+                <li>±ä¼¯:${JELLY_SCRIPT,template="html"}</li>
+            </ul>
+        </td>
+    </tr>
+    <tr>
+        <td><b><font color="#0B610B">¹¹½¨È־ (×ºó0Ð):</font></b>
+            <hr size="2" width="100%" align="center"/>
+        </td>
+    </tr>
+    <tr>
+        <td><textarea cols="120" rows="30" readonly="readonly"
+                      style="font-family: Courier New">${BUILD_LOG, maxLines=200}</textarea>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
